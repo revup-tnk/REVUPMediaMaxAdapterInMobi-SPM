@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "REVUPMediaMaxAdapterInMobi",
-    platforms: [.iOS(.v13)],
+    platforms: [.iOS(.v15)],
     products: [
         .library(
             name: "REVUPMediaMaxAdapterInMobi",
@@ -13,27 +13,21 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/InMobi/InMobiSDK-Swift-Package.git", exact: "11.3.0")
+        .package(url: "https://github.com/AppLovin/AppLovin-MAX-Swift-Package-InMobi.git", exact: "11050000.0.0"),
     ],
     targets: [
         .target(
             name: "REVUPMediaMaxAdapterInMobiTarget",
             dependencies: [
                 .target(name: "REVUPMediaMaxAdapterInMobi"),
-                .target(name: "AppLovinMediationInMobiAdapter"),
-                .product(name: "InMobiSDK", package: "InMobiSDK-Swift-Package"),
+                .product(name: "AppLovinMediationInMobiAdapter", package: "AppLovin-MAX-Swift-Package-InMobi"),
             ],
             path: "Sources"
         ),
         .binaryTarget(
             name: "REVUPMediaMaxAdapterInMobi",
-            url: "https://github.com/revup-tnk/REVUP-iOS-SDK/releases/download/1.1.0/REVUPMediaMaxAdapterInMobi.zip",
-            checksum: "f89a22d937c7f3d692fefdb67d6a448b989b09dce5c508db0edd082b6f2e5a82"
+            url: "https://github.com/revup-tnk/REVUP-iOS-SDK/releases/download/1.2.0/REVUPMediaMaxAdapterInMobi.zip",
+            checksum: "43f0d0f31cecc94a790c0a26b68f93f0da392757a69ba6f714ece42c74bee1cd"
         ),
-        .binaryTarget(
-            name: "AppLovinMediationInMobiAdapter",
-            url: "https://artifacts.applovin.com/ios/com/applovin/mediation/inmobi-adapter/AppLovinMediationInMobiAdapter-11.3.0.1.zip",
-            checksum: "b460199258dd68d023e4d1bfb7e35bff904ea0690a741cfbe8a6df1d8405a247"
-        )
     ]
 )
